@@ -1,4 +1,6 @@
 class DepartmentController < ApplicationController
+  
+  
   def index
     @departments = Department.all
   end
@@ -28,7 +30,7 @@ class DepartmentController < ApplicationController
 
   def update
     if @department.update(department_params)
-      redirect_to @department
+      redirect_to @departments_path
     else
       render :edit
     end
