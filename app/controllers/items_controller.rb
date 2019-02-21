@@ -17,27 +17,28 @@ class ItemsController < ApplicationController
   def create
     @item = @department.items.new(item_params)
     if @item.save
-      redirect_to department_items_path
+      redirect_to department_items_path(@department)
     else
-      render :new
+      render partial: "form"
     end
   end
 
   def edit
+    @item = Item.find(params[:id])
     render partial: "form"
   end
 
   def update
     if @item.update(item_params)
-      redirect_to department_items_path
+      redirect_to department_items_path(@department)
     else
-      render :edit
+      render partial: "form"
     end
   end
 
   def destroy
     @item.destroy
-    redirect_to department_items_path
+    redirect_to department_items_path(@department)
   end
 
   private
