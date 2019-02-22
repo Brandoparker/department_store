@@ -19,12 +19,11 @@ class ItemsController < ApplicationController
     if @item.save
       redirect_to department_items_path(@department)
     else
-      render partial: "form"
+      render :new
     end
   end
 
   def edit
-    @item = Item.find(params[:id])
     render partial: "form"
   end
 
@@ -32,7 +31,7 @@ class ItemsController < ApplicationController
     if @item.update(item_params)
       redirect_to department_items_path(@department)
     else
-      render partial: "form"
+      render :edit
     end
   end
 
