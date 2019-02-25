@@ -4,6 +4,9 @@
   <% @items.each do |item| %>
     <li><%= link_to item.name, [@department, item] %></li>
   <% end %>
+
+
+  <%= link_to 'Back To Departments', department_path(@department) %>
 </ul>
 
 
