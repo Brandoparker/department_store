@@ -1,8 +1,11 @@
-<h1>Item</h1>
-<%= form_for [@department, @item] do |item| %>
-  <%= item.label :name %>
-  <%= item.text_field :name %>
-  <%= item.label :body %>
-  <%= item.text_area :body %>
-  <%= item.submit %>
-  <% end %>
+<h1><%= @item.id ? 'Edit Item' : 'Create Item' %></h1>
+<hr />
+<%= form_with(model: [@department, @item], local: true, class: "ui form") do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name, required: true, autofocus: true %>
+  <br />
+  <%= f.label :body %>
+  <%= f.text_field :body, required: true %>
+  <br />
+  <%= f.submit nil, class: "ui button" %>
+<% end %>

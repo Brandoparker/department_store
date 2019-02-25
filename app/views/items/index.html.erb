@@ -1,11 +1,9 @@
-<h1><%= @department.name %> Items</h1>
-<% @items.each do |item| %>
-<h2><%= link_to item.name, department_item_path(@department, item) %>
-<button><%= button_to 'Edit', edit_department_item_path(@department, item), method: :get %></button>
-<button><%= button_to 'X', department_item_path(@department, item), method: :delete %></button>
-</h2>
-<h5><%= item.body %></h5>
-<% end %>
-<%= button_to 'New', new_department_item_path(@department, @item), method: :get %>
-<%= button_to 'back', departments_path, method: :get %>
-<%= button_to 'Create Items', department_items_path(@department), method: :post %>
+<h1>Click an Item To View It</h1>
+<%= link_to 'Add Item', new_department_item_path(@department) %>
+<ul>
+  <% @items.each do |item| %>
+    <li><%= link_to item.name, [@department, item] %></li>
+  <% end %>
+</ul>
+
+

@@ -1,3 +1,10 @@
-<h1><%= @item.name %></h1>
-<p><%= @item.body %></p>
-<%= button_to 'Back', department_items_path(@department), method: :get %>
+<h1><%= @department.name %></h1>
+<h4>Name: <%= @item.name %></h4>
+<h4>Body: <%= @item.body %></h4>
+
+<br />
+
+<br />
+<%= link_to 'Edit Item', edit_department_item_path([@department, @item]) %> |
+<%= link_to 'Delete Item', [@department, @item], method: :delete %> |
+<%= link_to 'Back To Items', department_items_path(@department) %>
