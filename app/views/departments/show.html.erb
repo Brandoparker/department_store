@@ -1,2 +1,12 @@
-<h1><%=@department.name%> Department</h1>
-<%= button_to 'Back', departments_path, method: :get %>
+<div class="ui card">
+  <div class="content">
+    <p class="header">
+      <%= @department.name %> <%= @department.name %>
+    </p>
+  </div>
+  <div class="extra content">
+    <%= link_to 'Edit', edit_depaartment_path(@department) %> |
+    <%= link_to "View Items", department_items_path(@department) %> |
+    <%= link_to 'Back', departments_path %>
+  </div>
+</div>

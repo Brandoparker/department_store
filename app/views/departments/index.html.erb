@@ -1,13 +1,9 @@
-<h1>Departments</h1>
-<% @departments.each do |d| %>
-<h4><%= link_to d.name, department_items_path(d) %>
-<button><%= button_to 'Show', department_path(d), method: :get %></button>
-<button><%= button_to 'Edit', edit_department_path(d), method: :get %></button>
-<button><%= button_to 'X', d, method: :delete %></button>
-</h4>
-</h4>
-
+<h1 class="ui header">All Departments</h1>
+<% @departments.each do |department| %>
+  <h1><%= department.name %></h1>
+  <%= link_to "Show", department_path(department) %>
+  <%= link_to "Edit", edit_department_path(department) %>
+  <%= link_to "Destroy", department_path(department), method: :delete %>
 <% end %>
-<%= button_to 'New', new_department_path, method: :get %>
-<%= button_to 'Create Departments', department_path, method: :post %>
-
+<br />
+<%= link_to "New Department", new_department_path %>

@@ -1,6 +1,6 @@
-<h1><%= @department.name ? 'Edit' : 'Create'  %> Department</h1>
-<%= form_for @department do |department| %>
-  <%= department.label :name %>
-  <%= department.text_field :name %>
-  <%= department.submit %>
-  <% end %>
+<%= form_with(model: department, local: true, class: "ui form") do |f| %>
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name, required: true, placeholder: "Name" %>
+  </div>
+<% end %>
