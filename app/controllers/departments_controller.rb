@@ -29,11 +29,7 @@ class DepartmentController < ApplicationController
 
   def update
     if @department.update(department_params)
-<<<<<<< HEAD
-      redirect_to department_path
-=======
-      redirect_to department_path(@department)
->>>>>>> 7355fd5e56c1234d8c9707eb5a6b6b70aa318997
+      redirect_to departments_path
     else
       render :edit
     end
