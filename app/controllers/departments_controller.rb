@@ -11,15 +11,13 @@ class DepartmentController < ApplicationController
 
   def new
     @department = Department.new
-    render partial: 'form'
   end
 
   def edit
-    render partial: 'form'
   end
 
   def create
-    @department = department.new(department_params)
+    @department = Department.new(department_params)
     if @department.save
       redirect_to departments_path
     else
@@ -28,8 +26,8 @@ class DepartmentController < ApplicationController
   end
 
   def update
-    if @department.update(department_params)
-      redirect_to departments_path
+    if @department.update
+      redirect_to @department
     else
       render :edit
     end
